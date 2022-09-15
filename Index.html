@@ -65,46 +65,107 @@
         <td>Taj Palace</td>
         <td>3 Hours</td>
       </tr>
+</table>
+     <!DOCTYPE html>
+<html>
+    <head>
+        <title> Basic HTML </title>
+    </head>
+   
+    <body>
+        <h1> Ranjith Vungarala</h1>
+    </body>
+    
+    <h6>Stiftung Automuseum Volkswagen</h6>
+    <p>This museum holds one of the <strong>finest automobile collection</strong> and always have a desire to vist such places to experience a <strong>vintage collections</strong>.</p>
+    <hr>
+    <p>Directions to travel from airport to museum.</p>
+    
+    <ol>
+        <li>Hannover Flughafen go to S5 towards Paderborn Hbf.</li>
+        <li>Catchup the shuttle ICE1153 towards Berlin Hbf(tief) in platform 9 at Hannover.
+    <ol>
+        <li> Then you will reach the wolfsburg Hauptbahnhof with in half an hour.</li>
+        <li>we need to walk 1mile.</li>
+    </ol>
+        </li>
+    <li> We will reach our Foundation Auto Museum Volkswagen, Dieselstraße 35, 38446 Wolfsburg, Germany.</li>
+    </ol>
 
-      <hr>
-      <h1>Code fencing</h1>
-<blockquote>
-    <p> What is String-Hashing? String hashing is the way to <br>
-        convert a string into an integer known as a hash of that string.An ideal hashing is the one in which there are minimum chances of collision <br>
-        (i.e 2 different strings having the same hash).</p>
+    <ul>
+        <li>phaeno science center</li>
+        <li>VW Pavaillon
+    <ul>
+        <li>Volkswagen Arena</li>
+        <li>VfL-Stadion</li>
+    </ul>
+        </li>
+    <li>Campingplatz</li>
+    <li>Santorini</li>
+    </ul>
 
-        <a href="https://www.geeksforgeeks.org/string-hashing-using-polynomial-rolling-hash-function/#:~:text=What%20is%20String%2DHashing%3F,strings%20having%20the%20same%20hash)">More Information</a>
-</blockquote>
+<a href="aboutme.html">AboutRanjith!</a>
+<hr>
+<h1>Cities to visit</h1>
+<table>
+    <tr>
+      <th>Name</th>
+      <th>Location</th>
+      <th>Time to spend</th>
+    </tr>
+    <tr>
+      <td>Hyderabad</td>
+      <td>Charminar</td>
+      <td>30 minutes</td>
+    </tr>
+    <tr>
+      <td>Agra</td>
+      <td>TajMahal</td>
+      <td>30 minutes</td>
+    </tr>
+    <tr>
+        <td>Delhi</td>
+        <td>India Gate</td>
+        <td>1 Hour</td>
+      </tr>
+      <tr>
+        <td>Mumbai</td>
+        <td>Taj Palace</td>
+        <td>3 Hours</td>
+      </tr>
+</table>
+<hr>
+<blockquotes>
+  <h1>code fencing</h1>
+  <p>
+    Let’s say you wanted to use the post thumbnail feature of WordPress, but had a whole archive of posts that would take too much time to go through. For new posts, you can be specific and use the feature as intended.<br>
+     For old posts, you just want to use the first image it finds in the content for the thumbnail, <br>
+     or a default if none present.
+
+  </p>
+  <a href="https://wordpress.stackexchange.com/questions/60245/get-the-first-image-from-post-content-eg-hotlinked-images">More Information</a>
+</blockquotes>
 <pre>
-    int count_unique_substrings(string const& s) {
-        int n = s.size();
-    
-        const int p = 31;
-        const int m = 1e9 + 9;
-        vector<long long> p_pow(n);
-        p_pow[0] = 1;
-        for (int i = 1; i < n; i++)
-            p_pow[i] = (p_pow[i-1] * p) % m;
-    
-        vector<long long> h(n + 1, 0);
-        for (int i = 0; i < n; i++)
-            h[i+1] = (h[i] + (s[i] - 'a' + 1) * p_pow[i]) % m;
-    
-        int cnt = 0;
-        for (int l = 1; l <= n; l++) {
-            set<long long> hs;
-            for (int i = 0; i <= n - l; i++) {
-                long long cur_h = (h[i + l] + m - h[i]) % m;
-                cur_h = (cur_h * p_pow[n-i-1]) % m;
-                hs.insert(cur_h);
-            }
-            cnt += hs.size();
+    function catch_that_image() {
+        global $post, $posts;
+        $first_img = '';
+        ob_start();
+        ob_end_clean();
+        $output = preg_match_all('/<img.+?src=[\'"]([^\'"]+)[\'"].*?>/i', $post->post_content, $matches);
+        $first_img = $matches[1][0];
+      
+        if(empty($first_img)) {
+          $first_img = "/path/to/default.png";
         }
-        return cnt;
-    }
-  </pre>
-  
+        return $first_img;
+      }
+</pre>
+<blockquotes>
+  <a href="https://css-tricks.com/snippets/wordpress/get-the-first-image-from-a-post/">Much more Info</a>
+</blockquotes>
+</body>  
+    
+</html>
       
       
 
-</html>
